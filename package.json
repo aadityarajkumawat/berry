@@ -1,11 +1,15 @@
 {
-  "name": "berry",
-  "version": "1.0.0",
-  "description": "A CLI to simply my work",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "Aditya Raj Kumawat",
-  "license": "MIT"
+    "name": "berry",
+    "bin": "./dist/index.js",
+    "version": "1.0.0",
+    "description": "A CLI to simply my work",
+    "main": "./dist/index.js",
+    "scripts": {
+        "watch": "tsc -w"
+    },
+    "author": "Aditya Raj Kumawat",
+    "license": "MIT",
+    "devDependencies": {
+        "typescript": "^4.2.4"
+    }
 }
