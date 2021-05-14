@@ -9,6 +9,7 @@ const fs_1 = __importDefault(require("fs"));
 const path_1 = __importDefault(require("path"));
 const readline_sync_1 = __importDefault(require("readline-sync"));
 const booleanState_1 = require("./booleanState");
+const questions_1 = require("./questions");
 const berryArgs = process.argv.slice(2);
 const cwd = process.cwd();
 const exec = child_process_1.default.exec;
@@ -32,9 +33,8 @@ switch (commandType) {
 function addEditorConfig() {
     const filesAndDirectories = fs_1.default.readdirSync(cwd, { encoding: 'utf-8' });
     const editorConfigExists = new booleanState_1.BooleanState(false);
-    const question = '❓ .editorconfig already exists do you want to replace it? [y/n]\n';
     if (filesAndDirectories.includes('.editorconfig')) {
-        const answer = readline_sync_1.default.question(question);
+        const answer = readline_sync_1.default.question(questions_1.editorConfigAlreadyExistsQuestion);
         if (answer === 'Y' || answer === 'y') {
             editorConfigExists.setFalse();
         }

@@ -5,6 +5,7 @@ import fs from 'fs';
 import path from 'path';
 import readlineSync from 'readline-sync';
 import { BooleanState } from './booleanState';
+import { editorConfigAlreadyExistsQuestion } from './questions';
 
 /**
  * List of features that I want to have
@@ -41,11 +42,8 @@ function addEditorConfig() {
     const filesAndDirectories = fs.readdirSync(cwd, { encoding: 'utf-8' });
     const editorConfigExists = new BooleanState(false);
 
-    const question =
-        '❓ .editorconfig already exists do you want to replace it? [y/n]\n';
-
     if (filesAndDirectories.includes('.editorconfig')) {
-        const answer = readlineSync.question(question);
+        const answer = readlineSync.question(editorConfigAlreadyExistsQuestion);
 
         if (answer === 'Y' || answer === 'y') {
             editorConfigExists.setFalse();
