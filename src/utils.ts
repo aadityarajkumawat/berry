@@ -5,7 +5,6 @@ import path from 'path';
 import readlineSync from 'readline-sync';
 import { BooleanState } from './elephant/booleanState';
 import { State } from './elephant/manageState';
-import { editorConfigAlreadyExistsQuestion } from './questions';
 
 const berryArgs = process.argv.slice(2);
 const cwd = process.cwd();
@@ -23,7 +22,6 @@ export {
     readlineSync,
     BooleanState,
     State,
-    editorConfigAlreadyExistsQuestion,
     berryArgs,
     cwd,
     exec,

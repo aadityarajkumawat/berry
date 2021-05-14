@@ -1,8 +1,8 @@
+import { editorConfigAlreadyExistsQuestion } from '../questions';
 import {
     BooleanState,
     chalk,
     cwd,
-    editorConfigAlreadyExistsQuestion,
     exec,
     fs,
     path,
@@ -34,10 +34,8 @@ export function addEditorConfig() {
             }
 
             const editorConfigContent = fs.readFileSync(
-                path.join(__dirname, 'content', 'editorconfig.txt'),
-                {
-                    encoding: 'utf-8',
-                },
+                path.join(__dirname, '..', 'content', 'editorconfig.txt'),
+                { encoding: 'utf-8' },
             );
 
             fs.writeFileSync(
@@ -46,6 +44,6 @@ export function addEditorConfig() {
                 { encoding: 'utf-8' },
             );
         });
-        console.log(chalk.green('+ Added a new editor config'));
+        console.log(chalk.green('+ Added a new .editorconfig file'));
     }
 }

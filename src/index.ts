@@ -12,7 +12,7 @@ import { printCWD } from './olives/printCWD';
  *
  * 1) Add .editorconfig file in pwd.
  * 2) Kill a process on a particular port.
- * 3) ...
+ * 3) Add a .gitignore
  */
 
 const berryArgs = process.argv.slice(2);
