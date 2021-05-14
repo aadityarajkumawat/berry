@@ -1,2 +1,5 @@
-export const editorConfigAlreadyExistsQuestion =
-    '❓ .editorconfig already exists do you want to replace it? [y/n]\n';
+import chalk from 'chalk';
+
+export const editorConfigAlreadyExistsQuestion = chalk.cyan(
+    'A .editorconfig file already exists do you want to replace it?\n[y/n]: ',
+);
