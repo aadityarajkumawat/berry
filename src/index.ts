@@ -43,6 +43,7 @@ switch (commandType) {
         break;
     case 'pwd':
         printCWD();
+        console.log('cool');
         break;
     default:
         console.log('default what!');
