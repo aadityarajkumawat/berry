@@ -1,9 +1,11 @@
 {
     "name": "berryx",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "description": "A CLI to simply my work",
     "main": "./dist/index.js",
-    "bin": "./dist/index.js",
+    "bin": {
+        "berryx": "./dist/index.js"
+    },
     "engines": {
         "node": ">=14.14"
     },
