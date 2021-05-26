@@ -4,10 +4,24 @@
     "version": "1.0.0",
     "description": "A CLI to simply my work",
     "main": "./dist/index.js",
+    "files": [
+        "index.js"
+    ],
+    "engines": {
+        "node": ">=14.14"
+    },
     "scripts": {
         "watch": "tsc -w"
     },
-    "author": "Aditya Raj Kumawat",
+    "keywords": [
+        "cli-app",
+        "devtools"
+    ],
+    "author": {
+        "name": "Aditya Raj Kumawat",
+        "email": "arkumawat78@gmail.com",
+        "url": "https://mysite.edydee.xyz"
+    },
     "license": "MIT",
     "devDependencies": {
         "@types/chalk": "^2.2.0",

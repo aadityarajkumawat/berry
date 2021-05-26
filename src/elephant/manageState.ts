@@ -5,7 +5,7 @@ interface StateData<T> {
 }
 
 type UpdateFn<T> = (prev: T) => T;
-type SetState<T> = T | ((prev: T) => T);
+type SetState<T> = T | UpdateFn<T>;
 
 export class State<T> {
     private state: T;
