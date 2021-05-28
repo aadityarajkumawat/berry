@@ -45,6 +45,7 @@ switch (commandType) {
         break;
     case 'pwd':
         printCWD();
+        console.log('cool');
         break;
     case '--help':
     case '-h':
