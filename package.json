@@ -1,6 +1,6 @@
 {
     "name": "berryx",
-    "version": "1.0.6",
+    "version": "1.0.7",
     "description": "A CLI to simply my work",
     "main": "./dist/index.js",
     "bin": "./dist/index.js",
