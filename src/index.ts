@@ -4,6 +4,7 @@ import chalk from 'chalk';
 import { State } from './elephant/manageState';
 import { addEditorConfig } from './olives/addEditorConfig';
 import { addGitIgnore } from './olives/addGitIgnore';
+import { addPrettierrc } from './olives/addPrettierrc';
 import { getListOfProcessByPort } from './olives/getListOfProcessByPort';
 import { killProcessByPort } from './olives/killProcessByPort';
 import { printCWD } from './olives/printCWD';
@@ -26,8 +27,10 @@ switch (commandType) {
             addEditorConfig();
         } else if (berryArgs[1] === 'gitignore') {
             addGitIgnore();
+        } else if (berryArgs[1] === 'prettierrc') {
+            addPrettierrc();
         } else {
-            console.log('what do i add');
+            console.log(`I have no idea about ${berryArgs[1]}`);
         }
         break;
     case 'kill-port':
@@ -58,6 +61,7 @@ switch (commandType) {
    [add command]:
         editorconfig - adds an editorconfig file
         gitignore - adds a gitignore file
+        prettierrc - adds a prettierrc file, while minimal config
 
    [kill-port]:
         <port-number> - kills process on a particular port
