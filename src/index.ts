@@ -1,13 +1,13 @@
 #!/usr/bin/env node
 
-import chalk from 'chalk';
-import { State } from './elephant/manageState';
-import { addEditorConfig } from './olives/addEditorConfig';
-import { addGitIgnore } from './olives/addGitIgnore';
-import { addPrettierrc } from './olives/addPrettierrc';
-import { getListOfProcessByPort } from './olives/getListOfProcessByPort';
-import { killProcessByPort } from './olives/killProcessByPort';
-import { printCWD } from './olives/printCWD';
+import chalk from 'chalk'
+import { State } from './elephant/manageState'
+import { addEditorConfig } from './olives/addEditorConfig'
+import { addGitIgnore } from './olives/addGitIgnore'
+import { addPrettierrc } from './olives/addPrettierrc'
+import { getListOfProcessByPort } from './olives/getListOfProcessByPort'
+import { killProcessByPort } from './olives/killProcessByPort'
+import { printCWD } from './olives/printCWD'
 
 /**
  * List of features that I want to have
@@ -17,44 +17,44 @@ import { printCWD } from './olives/printCWD';
  * 3) Add a .gitignore
  */
 
-const berryArgs = process.argv.slice(2);
-const commandType = berryArgs[0];
-const $3s = '   ';
+const berryArgs = process.argv.slice(2)
+const commandType = berryArgs[0]
+const $3s = '   '
 
 switch (commandType) {
     case 'add':
         if (berryArgs[1] === 'editorconfig') {
-            addEditorConfig();
+            addEditorConfig()
         } else if (berryArgs[1] === 'gitignore') {
-            addGitIgnore();
+            addGitIgnore()
         } else if (berryArgs[1] === 'prettierrc') {
-            addPrettierrc();
+            addPrettierrc()
         } else {
-            console.log(`I have no idea about ${berryArgs[1]}`);
+            console.log(`I have no idea about ${berryArgs[1]}`)
         }
-        break;
+        break
     case 'setup':
-        addEditorConfig();
-        addGitIgnore();
-        addPrettierrc();
-        break;
+        addEditorConfig()
+        addGitIgnore()
+        addPrettierrc()
+        break
     case 'kill-port':
         if (berryArgs[1]) {
-            const pidState = new State<number | undefined>(undefined);
-            const port = parseInt(berryArgs[1]);
+            const pidState = new State<number | undefined>(undefined)
+            const port = parseInt(berryArgs[1])
 
-            getListOfProcessByPort(port, pidState);
+            getListOfProcessByPort(port, pidState)
 
-            const PID = pidState.getState();
-            if (!PID) break;
+            const PID = pidState.getState()
+            if (!PID) break
 
-            killProcessByPort(PID);
+            killProcessByPort(PID)
         }
-        break;
+        break
     case 'pwd':
-        printCWD();
-        console.log('cool');
-        break;
+        printCWD()
+        console.log('cool')
+        break
     case '--help':
     case '-h':
         console.log(`   Usage
@@ -70,17 +70,17 @@ switch (commandType) {
 
    [kill-port]:
         <port-number> - kills process on a particular port
-        `);
-        break;
+        `)
+        break
     default:
-        console.log(chalk.greenBright(`${$3s}|||| Welcome to berryx ||||`));
+        console.log(chalk.greenBright(`${$3s}|||| Welcome to berryx ||||`))
         console.log(
             `\n${$3s}Berryx was developed to do tasks that I don't like\n${$3s}doing manaually or are better to do using terminal`,
-        );
+        )
         console.log(
             `\n${$3s}Github Repository: https://github.com/aadityarajkumawat/berry\n${$3s}--help | -h: To see all options`,
-        );
+        )
         console.log(
             chalk.hex('#dccfff').bold(`\n${$3s}Author: Aditya Raj Kumawat`),
-        );
+        )
 }
