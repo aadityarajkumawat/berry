@@ -33,6 +33,11 @@ switch (commandType) {
             console.log(`I have no idea about ${berryArgs[1]}`);
         }
         break;
+    case 'setup':
+        addEditorConfig();
+        addGitIgnore();
+        addPrettierrc();
+        break;
     case 'kill-port':
         if (berryArgs[1]) {
             const pidState = new State<number | undefined>(undefined);
