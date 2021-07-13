@@ -34,3 +34,6 @@ dist/
 # Lock files
 yark.lock
 package-lock.json
+
+# cache
+.cache

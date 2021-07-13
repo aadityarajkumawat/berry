@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 
-import chalk from 'chalk'
 import { State } from './elephant/manageState'
 import { addEditorConfig } from './olives/addEditorConfig'
 import { addGitIgnore } from './olives/addGitIgnore'
@@ -8,6 +7,8 @@ import { addPrettierrc } from './olives/addPrettierrc'
 import { getListOfProcessByPort } from './olives/getListOfProcessByPort'
 import { killProcessByPort } from './olives/killProcessByPort'
 import { printCWD } from './olives/printCWD'
+import { printToolDetails } from './river/defaultInfo'
+import { help } from './river/help'
 
 /**
  * List of features that I want to have
@@ -15,11 +16,11 @@ import { printCWD } from './olives/printCWD'
  * 1) Add .editorconfig file in pwd.
  * 2) Kill a process on a particular port.
  * 3) Add a .gitignore
+ * 4) Add a .prettierrc
  */
 
 const berryArgs = process.argv.slice(2)
 const commandType = berryArgs[0]
-const $3s = '   '
 
 switch (commandType) {
     case 'add':
@@ -53,34 +54,11 @@ switch (commandType) {
         break
     case 'pwd':
         printCWD()
-        console.log('cool')
         break
     case '--help':
     case '-h':
-        console.log(`   Usage
-   [commands]:
-        add: adds the required file.
-        kill-port: kills the running process on a port
-        pwd: gives the current path
-
-   [add command]:
-        editorconfig - adds an editorconfig file
-        gitignore - adds a gitignore file
-        prettierrc - adds a prettierrc file, while minimal config
-
-   [kill-port]:
-        <port-number> - kills process on a particular port
-        `)
+        console.log(help)
         break
     default:
-        console.log(chalk.greenBright(`${$3s}|||| Welcome to berryx ||||`))
-        console.log(
-            `\n${$3s}Berryx was developed to do tasks that I don't like\n${$3s}doing manaually or are better to do using terminal`,
-        )
-        console.log(
-            `\n${$3s}Github Repository: https://github.com/aadityarajkumawat/berry\n${$3s}--help | -h: To see all options`,
-        )
-        console.log(
-            chalk.hex('#dccfff').bold(`\n${$3s}Author: Aditya Raj Kumawat`),
-        )
+        printToolDetails()
 }
