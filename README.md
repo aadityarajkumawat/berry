@@ -52,7 +52,7 @@ berryx kill-port 4000
 
 ### help
 
-In order to get some help using berryx you can either use one of the these commands
+In order to get some help using berryx you can use either of thess commands
 
 ```bash
 berryx
